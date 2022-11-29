@@ -1,0 +1,22 @@
+{
+	"inbounds": [{
+		"port": 10086,
+		"protocol": "vmess",
+		"listen": "127.0.0.1",
+		"settings": {
+			"clients": [{
+				"id": "$V2RAY_CLIENT_ID"
+			}]
+		},
+		"streamSettings": {
+			"network": "ws",
+			"wsSettings": {
+				"path": "/$CONFUSE_PATH"
+			}
+		}
+	}],
+	"outbounds": [{
+		"protocol": "freedom",
+		"settings": {}
+	}]
+}

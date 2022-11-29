@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  v2ray:
+    container_name: queen_v2ray
+    image: v2ray/official
+    expose:
+      - '10086'
+    volumes:
+      - $HOME/queen/config.json:/etc/v2ray/config.json
+      - /var/log/v2ray:/var/log/v2ray
+
+  nginx:
+    container_name: queen_nginx
+    image: nginx:stable
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - $HOME/queen/default.conf:/etc/nginx/conf.d/default.conf
+      - $HOME/queen/web:/usr/share/nginx/html/demo
+      - $HOME/queen/cert:/etc/nginx/cert
